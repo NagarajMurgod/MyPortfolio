@@ -7,57 +7,61 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export const About = () => {
 
-
-  const [slide, setSlide] = useState(0);
-  const itemRef = useRef(null);
   const scrollRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const itemref = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
+  const updateButtonVisibility = () => {
+    const container = scrollRef.current;
+    if (container) {
+      const isAtStart = container.scrollLeft <= 100 ;
+      const isAtEnd = container.scrollLeft + container.offsetWidth >= container.scrollWidth-100;
 
-  const handleIntersection = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
-        // Scroll to show the full div when 10% is visible, and mouse is released
-        const element = entry.target;
-        scrollRef.current.scrollTo({
-          left: element.offsetLeft - (scrollRef.current.clientWidth - element.offsetWidth) / 2,
-          behavior: 'smooth',
-        });
-        observer.unobserve(entry.target);  // Unobserve once action is complete
-      }
-    });
+      setCanScrollLeft(!isAtStart);
+      setCanScrollRight(!isAtEnd);
+    }
   };
 
   useEffect(() => {
-    console.log("wroknng");
-    const observer = new IntersectionObserver(handleIntersection, {
-      root: scrollRef.current,
-      threshold: 0.1, // 10% visibility
-    });
-
-    if (itemRef.current) {
-      observer.observe(itemRef.current);
+    const container = scrollRef.current;
+    console.log("re")
+    if (container) {
+      container.addEventListener('scroll', updateButtonVisibility);
     }
-
+    // Clean up the event listener
     return () => {
-      if (itemRef.current) {
-        observer.unobserve(itemRef.current);
+      if (container) {
+        container.removeEventListener('scroll', updateButtonVisibility);
       }
     };
-  },[isDragging]);
+  }, []);
 
   const prevSlide = () => {
-    if(slide > 0){
-      setSlide(prev => prev - 1);
+    if (scrollRef.current) {
+      const containerWidth = scrollRef.current.offsetWidth + 50.5;
+       // Adjust the scroll distance
+      scrollRef.current.scrollTo({
+        left: scrollRef.current.scrollLeft - containerWidth,
+        behavior: 'smooth', 
+      });
+      
+
     }
   }
 
   const nextSlide = () => {
-    if(slide < experience.length){
-      setSlide(prev => prev + 1)
+    if (scrollRef.current) {
+      const containerWidth = scrollRef.current.offsetWidth + 50.5;
+      scrollRef.current.scrollTo({
+        left: scrollRef.current.scrollLeft + containerWidth,
+        behavior: 'smooth', // Smooth scroll
+      });
     }
+
   }
 
   const handleMouseDown = (e) => {
@@ -69,7 +73,7 @@ export const About = () => {
   const handleMouseMove = (e) => {
     if (!isDragging) return;
 
-    const x = (e.pageX - startX) * 2;
+    const x = (e.pageX - startX);
     scrollRef.current.scrollLeft = scrollLeft - x;
   };
 
@@ -88,12 +92,12 @@ export const About = () => {
       <div className={styles.mainContainer}>
         <h2 className={styles.title}>Experience</h2>
         <section className={styles.container} id="about">
-          <KeyboardArrowLeftIcon 
+          {canScrollLeft ? <KeyboardArrowLeftIcon 
             onClick={prevSlide} 
             className={`${styles.leftarrow} ${styles.arrows}`}
-            style={{display : (slide == 0) ? "none" : "" }}
-          />
-          <KeyboardArrowRightIcon onClick={nextSlide} className={`${styles.rightarrow} ${styles.arrows}`} style={{display : (slide == experience.length) ? "none" : "" }}/>
+          />:""}
+
+          {canScrollRight ?<KeyboardArrowRightIcon onClick={nextSlide} className={`${styles.rightarrow} ${styles.arrows}`}/>:""}
 
           <div className={styles.content}>
             <ul 
@@ -107,7 +111,7 @@ export const About = () => {
             >
               {experience.map((exp,id) => {
                 return (
-                  <li ref={itemRef} key={id} className={ slide === id || true ? styles.aboutItem : styles.hideSlide}>
+                  <li key={id} className={styles.aboutItem}>
                     <img src={getImageUrl(exp.company)} alt="Cursor icon" />
                     <div className={styles.aboutItemText}>
                       <h3>{exp.role}</h3>
@@ -123,7 +127,7 @@ export const About = () => {
                     </div>
                   </li>
                 )})}
-                <li className={ slide >= experience.length ? styles.futureExp : styles.hideSlide}>
+                <li className={ false ? styles.futureExp : styles.hideSlide}>
                   "Looking forward to transforming this space into a showcase of my contributions to your team's ongoing success."
                 </li>
             </ul>
