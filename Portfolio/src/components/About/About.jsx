@@ -1,20 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./About.module.css";
 import { getImageUrl } from "../../utils";
 import experience from "../../data/experience.json";
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export const About = () => {
+
+
+  const [slide, setSlide] = useState(0)
+
+  const prevSlide = () => {
+    if(slide > 0){
+      setSlide(prev => prev - 1);
+    }
+  }
+
+  const nextSlide = () => {
+    if(slide < experience.length){
+      setSlide(prev => prev + 1)
+    }
+  }
+
+
+
   return (
-    
     <>
       <div className={styles.mainContainer}>
         <h2 className={styles.title}>Experience</h2>
         <section className={styles.container} id="about">
+          <KeyboardArrowLeftIcon 
+            onClick={prevSlide} 
+            className={`${styles.leftarrow} ${styles.arrows}`}
+            style={{display : (slide == 0) ? "none" : "" }}
+          />
+          <KeyboardArrowRightIcon onClick={nextSlide} className={`${styles.rightarrow} ${styles.arrows}`} style={{display : (slide == experience.length) ? "none" : "" }}/>
+
           <div className={styles.content}>
             <ul className={styles.aboutItems}>
               {experience.map((exp,id) => {
                 return (
-                  <li key={id} className={styles.aboutItem}>
+                  <li key={id} className={ slide === id ? styles.aboutItem : styles.hideSlide}>
                     <img src={getImageUrl(exp.company)} alt="Cursor icon" />
                     <div className={styles.aboutItemText}>
                       <h3>{exp.role}</h3>
@@ -30,6 +56,9 @@ export const About = () => {
                     </div>
                   </li>
                 )})}
+                <li className={ slide >= experience.length ? styles.futureExp : styles.hideSlide}>
+                  "Looking forward to transforming this space into a showcase of my contributions to your team's ongoing success."
+                </li>
             </ul>
           </div>
         </section>

@@ -13,6 +13,7 @@
   padding: 73px;
   z-index: 1;
   min-height: 80vh;
+  
 }
 
 .title {
@@ -30,6 +31,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-height: 50%;
 }
 
 .aboutImage {
@@ -48,6 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
+  position: relative;
 }
 
 .aboutItemText{
@@ -57,7 +60,49 @@
 }
 
 .aboutItem{
+  position: absolute;
   display: flex;
+  opacity: 1;
+  transition: opacity ease-in-out 0.5s;
+  
+}
+
+.arrows{
+  color: white;
+  font-size: 4rem !important;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  cursor: pointer;
+}
+
+.arrows:hover{
+  font-size: 4.5rem !important;
+  transition: font-size ease-in-out 0.4s;
+}
+.leftarrow{
+  left: 0;
+  
+}
+.rightarrow{
+  right: 0;
+}
+
+.hideSlide{
+  opacity: 0;
+  height: 0;
+}
+
+.futureExp{
+  list-style-type: none;  
+  position: absolute;
+  margin-top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;  
+  text-align: center;
+  color: rgb(230, 230, 230);
+  font-style: italic;
 }
 /* .aboutItem {
   display: flex;
