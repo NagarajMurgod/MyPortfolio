@@ -16,27 +16,58 @@ export const About = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const updateButtonVisibility = () => {
-    const container = scrollRef.current;
-    if (container) {
-      const isAtStart = container.scrollLeft <= 500 ;
-      const isAtEnd = container.scrollLeft + container.offsetWidth >= container.scrollWidth-100;
-
-      setCanScrollLeft(!isAtStart);
-      setCanScrollRight(!isAtEnd);
-    }
-  };
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (container) {
-      container.addEventListener('scroll', updateButtonVisibility);
-    }
-    // Clean up the event listener
-    return () => {
-      if (container) {
-        container.removeEventListener('scroll', updateButtonVisibility);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+            setDot(entry.target.value)
+            let divElement = entry.target
+            if(entry.target.value === 0){
+              setCanScrollLeft(false);
+            }
+            else{
+              setCanScrollLeft(true);
+            }
+            if(entry.target.value === experience.length){
+              setCanScrollRight(false);
+            }
+            else{
+              setCanScrollRight(true);
+            }
+            // Get the offset of the div within the container
+            const divOffset = divElement.offsetLeft;
+            // Get the container's scroll width and current scroll position
+            const containerWidth = scrollRef.current.offsetWidth;
+            const divWidth = divElement.offsetWidth;
+            scrollRef.current.scrollTo({
+              left: divOffset - (containerWidth - divWidth) / 2,
+              behavior: "smooth", // Smooth scroll animation
+            })
+          } else {
+            
+          }
+        });
+      },
+      {
+        root: scrollRef.current,
+        rootMargin: '0px 20%',
+        threshold: 0.3, // 20% visibility
       }
+    );
+
+    console.log(scrollRef.current);
+    scrollRef.current.childNodes.forEach((div) => {
+      if (div) observer.observe(div);
+    });
+
+    return () => {
+      // Cleanup observer
+      scrollRef.current.childNodes.forEach((div) => {
+        if (div) observer.unobserve(div);
+      });
     };
   }, []);
 
@@ -121,7 +152,7 @@ export const About = () => {
             >
               {experience.map((exp,id) => {
                 return (
-                  <li key={id} className={styles.aboutItem}>
+                  <li value={id} key={id} className={styles.aboutItem}>
                     <img src={getImageUrl(exp.company)} alt="Cursor icon" />
                     <div className={styles.aboutItemText}>
                       <h3>{exp.role}</h3>
@@ -137,7 +168,7 @@ export const About = () => {
                     </div>
                   </li>
                 )})}
-                <li className={styles.futureExp}>
+                <li value={experience.length} className={styles.futureExp}>
                   <p>
                     "Looking forward to transforming this space into a showcase of my contributions to your team's ongoing success."
                   </p>
