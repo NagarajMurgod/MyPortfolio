@@ -11,14 +11,15 @@ export const About = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const itemref = useRef(null);
+  // const itemref = useRef(null);
+  const [dot, setDot] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const updateButtonVisibility = () => {
     const container = scrollRef.current;
     if (container) {
-      const isAtStart = container.scrollLeft <= 100 ;
+      const isAtStart = container.scrollLeft <= 500 ;
       const isAtEnd = container.scrollLeft + container.offsetWidth >= container.scrollWidth-100;
 
       setCanScrollLeft(!isAtStart);
@@ -28,7 +29,6 @@ export const About = () => {
 
   useEffect(() => {
     const container = scrollRef.current;
-    console.log("re")
     if (container) {
       container.addEventListener('scroll', updateButtonVisibility);
     }
@@ -48,7 +48,7 @@ export const About = () => {
         left: scrollRef.current.scrollLeft - containerWidth,
         behavior: 'smooth', 
       });
-      
+      if(dot > 0) setDot(prev => prev - 1);
 
     }
   }
@@ -60,6 +60,7 @@ export const About = () => {
         left: scrollRef.current.scrollLeft + containerWidth,
         behavior: 'smooth', // Smooth scroll
       });
+      if(dot < experience.length) setDot(prev => prev + 1);
     }
 
   }
@@ -90,15 +91,24 @@ export const About = () => {
   return (
     <>
       <div className={styles.mainContainer}>
-        <h2 className={styles.title}>Experience</h2>
-        <section className={styles.container} id="about">
+        <h2 className={styles.title} id="about">Experience</h2>
+        <section className={styles.container} >
           {canScrollLeft ? <KeyboardArrowLeftIcon 
             onClick={prevSlide} 
             className={`${styles.leftarrow} ${styles.arrows}`}
           />:""}
-
           {canScrollRight ?<KeyboardArrowRightIcon onClick={nextSlide} className={`${styles.rightarrow} ${styles.arrows}`}/>:""}
-
+          
+          <div className={styles.dots}>
+            {experience.map((exp,id)=>{
+              return (
+                <div key={id} style={{backgroundColor: dot === id ? "grey" : "" }}>
+                </div>
+              )
+            })}
+            <div style={{backgroundColor: dot === experience.length ? "grey" : "" }}>
+            </div>
+          </div>
           <div className={styles.content}>
             <ul 
               className={styles.aboutItems}
@@ -127,8 +137,10 @@ export const About = () => {
                     </div>
                   </li>
                 )})}
-                <li className={ false ? styles.futureExp : styles.hideSlide}>
-                  "Looking forward to transforming this space into a showcase of my contributions to your team's ongoing success."
+                <li className={styles.futureExp}>
+                  <p>
+                    "Looking forward to transforming this space into a showcase of my contributions to your team's ongoing success."
+                  </p>
                 </li>
             </ul>
           </div>
