@@ -23,8 +23,16 @@ export const About = () => {
         entries.forEach((entry) => {
 
           if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+            const divElement = entry.target;
+            const divOffset = divElement.offsetLeft;
+            const containerWidth = scrollRef.current.offsetWidth;
+            const divWidth = divElement.offsetWidth;
+
+            scrollRef.current.scrollTo({
+              left: divOffset - (containerWidth - divWidth) / 2,
+              behavior: "smooth", // Smooth scroll animation
+            })
             setDot(entry.target.value)
-            let divElement = entry.target
             if(entry.target.value === 0){
               setCanScrollLeft(false);
             }
@@ -38,14 +46,6 @@ export const About = () => {
               setCanScrollRight(true);
             }
             // Get the offset of the div within the container
-            const divOffset = divElement.offsetLeft;
-            // Get the container's scroll width and current scroll position
-            const containerWidth = scrollRef.current.offsetWidth;
-            const divWidth = divElement.offsetWidth;
-            scrollRef.current.scrollTo({
-              left: divOffset - (containerWidth - divWidth) / 2,
-              behavior: "smooth", // Smooth scroll animation
-            })
           } else {
             
           }
@@ -118,6 +118,23 @@ export const About = () => {
   };
 
 
+  const scrollJobDesc = () => {
+    let element = document.querySelector(`#exp${dot} ul`);
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      element.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+    else{
+      element.scrollBy({
+        top: 50, // Scroll down by 100px vertically
+        left: 0,  // No horizontal scroll
+        behavior: 'smooth', // Enable smooth scrolling
+      });
+      console.log(element);
+    }
+  }
 
   return (
     <>
@@ -150,9 +167,9 @@ export const About = () => {
               onMouseLeave={handleMouseLeave}
 
             >
-              {experience.map((exp,id) => {
+              {experience.map((exp,idx) => {
                 return (
-                  <li value={id} key={id} className={styles.aboutItem}>
+                  <li value={idx} id={"exp"+idx} key={idx} className={styles.aboutItem}>
                     <img src={getImageUrl(exp.company)} alt="Cursor icon" />
                     <div className={styles.aboutItemText}>
                       <h3>{exp.role}</h3>
@@ -160,21 +177,25 @@ export const About = () => {
                       <ul className={styles.jobDescription}>
                         {exp.experience.map((resp,id)=>{
                           return (
-                            <li key={id}>
-                              {resp}
-                            </li>
+                            <>
+                              <li key={id}>
+                                {resp}
+                              </li>
+                            </>
                         )})}
                       </ul>
                     </div>
+                    <div className={styles.fadedText}></div>
                   </li>
                 )})}
-                <li value={experience.length} className={styles.futureExp}>
+                <li key={experience.length} value={experience.length} className={styles.futureExp}>
                   <p>
                     "Looking forward to transforming this space into a showcase of my contributions to your team's ongoing success."
                   </p>
                 </li>
             </ul>
           </div>
+          <button onClick={scrollJobDesc} className={styles.readMoreBtn}>Read More</button>
         </section>
       </div>
     </>
