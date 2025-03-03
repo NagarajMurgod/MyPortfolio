@@ -11,7 +11,9 @@
     margin-left: 10%;
     margin-right: 10%;
     /* border: 1px solid red; */
+    padding: 0 2%;
     height: 70vh;
+
 }
 
 .content{
@@ -20,6 +22,7 @@
     align-items: flex-start;
     color: var(--color-text);
     z-index: 1;
+    /* border: 1px solid red; */
 }
 
 .gmailIcon{
@@ -73,7 +76,7 @@
     width: 3rem;
   }
   .heroImg {
-    width: 35%;
+    width: 30%;
     /* height: 50%; */
     z-index: 1;
     animation-name: floating;

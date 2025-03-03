@@ -1,10 +1,11 @@
 @import "../../vars.css";
 
 .container {
-  margin-top: 76px;
+  margin-top: 10rem;
   color: var(--color-text);
   margin-left: 10%;
   margin-right: 10%;
+  position: relative;
 }
 
 .title {
@@ -12,15 +13,34 @@
   font-weight: 700;
   letter-spacing: 1.75px;
   text-transform: uppercase;
+
 }
 
 .projects {
   margin-top: 37px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  width: 100%;
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
+  margin: 3rem auto;
+  gap: 25px;
+  max-width: 78%;
+  /* border: 1px solid red; */
+  overflow-x: auto;
+}
+
+.arrows{
+  font-size: 4rem !important;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  /* transform: translateY(-50%); */
+}
+
+.projects .arrows:first-child{
+  left: 2%;
+}
+
+.projects .arrows:nth-child(2){
+  right: 2%;
 }

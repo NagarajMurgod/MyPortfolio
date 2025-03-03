@@ -1,0 +1,53 @@
+@import "../../vars.css";
+
+.container{
+    margin: 0 10%;
+    position: relative;
+    color: var(--color-text);
+    margin-top: 10rem;
+}
+
+.certContainer{
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    height: 25rem;
+    overflow-x: auto;
+}
+
+.title {
+    color: var(--color-text);
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1.75px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;   
+}
+
+.certDiv{
+    height: 100%;
+    width: 50%;
+    flex-shrink: 0;
+}
+.certDiv img{
+    width: 100%;
+    height: 100%;
+
+}
+
+.arrows{
+    font-size: 4rem !important;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    /* transform: translateY(-50%); */
+}
+
+.certContainer .arrows:first-child{
+    left: 2%;
+}
+
+.certContainer .arrows:nth-child(2){
+    right: 2%;
+}

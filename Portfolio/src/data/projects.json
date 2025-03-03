@@ -1,23 +1,31 @@
 [
     {
-      "title": "Project A",
-      "imageSrc": "projects/project.png",
+      "title": "Social Media App",
+      "imageSrc": "projects/home.png",
+      "description": "A modern social media platform built with React for the frontend and Django for the backend.",
+      "skills": ["React", "PostgreSQL","Django Restframework"],
+      "demo": "https://www.example.com",
+      "source": "https://www.github.com"
+    },
+    {
+      "title": "Personal Portfolio",
+      "imageSrc": "projects/portfolio.png",
+      "description": "This is a project made to get hands-on with React module and its features.",
+      "skills": ["Django", "Django Restframework","swagger"],
+      "demo": "https://www.example.com",
+      "source": "https://www.github.com"
+    },
+    {
+      "title": "Ecommerce APIs",
+      "imageSrc": "projects/ecommerce.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node"],
       "demo": "https://www.example.com",
       "source": "https://www.github.com"
     },
     {
-      "title": "Project B",
-      "imageSrc": "projects/project.png",
-      "description": "This is a project made to learn the latest languages by building an app.",
-      "skills": ["React", "Express", "Node", "Sass"],
-      "demo": "https://www.example.com",
-      "source": "https://www.github.com"
-    },
-    {
-      "title": "Project C",
-      "imageSrc": "projects/project.png",
+      "title": "TODO Application",
+      "imageSrc": "projects/ecommerce.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node"],
       "demo": "https://www.example.com",
