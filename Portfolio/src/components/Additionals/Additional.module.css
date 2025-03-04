@@ -1,0 +1,44 @@
+@import "../../vars.css";
+
+.container{
+    margin: 0 10%;
+    position: relative;
+    color: var(--color-text);
+    margin-top: 10rem;
+}
+
+.innerContainer{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.title {
+    color: var(--color-text);
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1.75px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;   
+}
+
+.EducationTitle{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.innerContainer ul{
+    list-style-type: none;
+    display: flex;
+    /* flex-direction: column; */
+    gap: 3rem;
+}
+
+.innerContainer ul li{
+    background-color: rgba(10, 10, 10, 0.6);
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
