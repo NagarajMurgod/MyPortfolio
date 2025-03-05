@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 
 export const Additional = () => {
     return (
-        <section className={styles.container}>
+        <section id="education" className={styles.container}>
             <h2 className={styles.title}>EDUCATION</h2>
             <div className={styles.innerContainer}>
                 <ul>

@@ -69,3 +69,50 @@
   background: var(--color-primary);
   padding: 1px 22px;
 }
+
+@media screen and (max-width: 830px){
+  .title {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  .container{
+    height: 450px;
+    max-width: 300px;
+  }
+
+  .image {
+    margin-bottom: 20px;
+    height: 7rem;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .description{
+    font-size: 1.1rem;
+  }
+
+  .link{
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 450px){
+
+  .container{
+    height: 420px;
+    max-width: 250px;
+  }
+  .skill{
+    font-size: 0.8rem;
+  }
+
+  .description{
+    font-size: 1rem;
+  }
+  .link{
+    font-size: 1.2rem;
+  }
+}

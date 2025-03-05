@@ -14,6 +14,7 @@
     gap: 2rem;
     height: 25rem;
     overflow-x: auto;
+
 }
 
 .title {
@@ -50,4 +51,29 @@
 
 .certContainer .arrows:nth-child(2){
     right: 2%;
+}
+
+@media screen and (max-width: 830px){
+    .container{
+        margin-top: 5rem;
+    }
+    .certContainer{
+        max-width: 95%;
+        height: 16rem;
+    }
+    .certDiv{
+        width: 80%;
+    }
+    .arrows{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .title{
+        font-size: 1.4rem;
+    }
+    .certDiv{
+        width: 85%;
+    }
 }

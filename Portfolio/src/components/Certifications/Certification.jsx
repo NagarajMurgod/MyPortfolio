@@ -30,7 +30,7 @@ export const Certifications = () => {
     }
 
     
-    return <section className={styles.container}>
+    return <section id="certifications" className={styles.container}>
         <h2 className={styles.title}>CERTIFICATION</h2>
         
         <div ref={Scrollref} className={styles.certContainer}>

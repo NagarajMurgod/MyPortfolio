@@ -78,3 +78,34 @@
     gap: 9px;
   }
 }
+
+
+
+@media screen and (max-width: 1200px){
+  .title{
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .title{
+    font-size: 1.4rem;
+  }
+  .container{
+    margin-top: 1rem;
+  }
+
+
+  .skillImageContainer{
+    width: 60px;
+    height: 60px;
+  }
+  .skillImageContainer img {
+    width: 50px;
+  }
+
+  .skills p{
+    font-size: 1rem;
+  }
+}

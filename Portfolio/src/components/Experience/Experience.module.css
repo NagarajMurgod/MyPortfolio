@@ -221,6 +221,9 @@
     position: relative;
   
   }
+  .title{
+    font-size: 1.4rem !important;
+  }
   .aboutItems{
     /* border: 1px solid red; */
     min-height: 400px !important;

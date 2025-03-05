@@ -42,3 +42,29 @@
     gap: 0.5rem;
     flex: 1;
 }
+
+@media screen and (max-width: 450px){
+    .title{
+        font-size: 1.4rem;
+    }
+
+    .innerContainer{
+        max-width: 100%;
+    }
+
+    .innerContainer ul{
+        flex-direction: column;
+    }
+
+    .innerContainer ul li{
+        font-size: 70%;
+    }
+}
+
+@media screen and (max-width: 830px){
+
+    .innerContainer ul{
+        flex-direction: column;
+    }
+
+}

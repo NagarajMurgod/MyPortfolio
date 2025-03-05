@@ -44,3 +44,32 @@
 .projects .arrows:nth-child(2){
   right: 2%;
 }
+
+@media screen and (max-width: 830px){
+  .container{
+    margin-left: 5%;
+    margin-right: 5%;
+
+  }
+  .arrows{
+    display: none !important;
+  }
+  .projects{
+    max-width: 90%;
+    height: 450px;
+  }
+
+}
+
+@media screen and (max-width: 450px){
+  .title{
+    font-size: 1.4rem;
+    margin-left: 5%;
+  }
+
+  .container{
+    margin-top: 5rem;
+  }
+
+  
+}

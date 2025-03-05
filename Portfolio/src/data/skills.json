@@ -24,16 +24,16 @@
       "imageSrc": "skills/sql.png"
     },
     {
-      "title": "Git & GitHub",
-      "imageSrc": "skills/git.png"
-    },
-    {
       "title": "Azure",
       "imageSrc": "skills/Azure.png"
     },
     {
       "title": "Ansible",
       "imageSrc": "skills/ansible.png"
+    },
+    {
+      "title": "Git",
+      "imageSrc": "skills/git.png"
     }
 
   ]

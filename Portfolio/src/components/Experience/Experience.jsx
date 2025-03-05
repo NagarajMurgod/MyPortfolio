@@ -139,7 +139,7 @@ export const Experience = () => {
   return (
     <>
       <div className={styles.mainContainer}>
-        <h2 className={styles.title} id="about">Experience</h2>
+        <h2 className={styles.title} id="experience">Experience</h2>
         <section className={styles.container} >
           {canScrollLeft ? <KeyboardArrowLeftIcon 
             onClick={prevSlide} 
