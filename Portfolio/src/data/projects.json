@@ -5,30 +5,30 @@
       "description": "A modern social media platform built with React for the frontend and Django for the backend.",
       "skills": ["React", "PostgreSQL","Django Restframework"],
       "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "source": "https://github.com/NagarajMurgod/Social-Media-App"
     },
     {
       "title": "Personal Portfolio",
       "imageSrc": "projects/portfolio.png",
       "description": "This is a project made to get hands-on with React module and its features.",
-      "skills": ["Django", "Django Restframework","swagger"],
+      "skills": ["React","css"],
       "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "source": "https://github.com/NagarajMurgod/MyPortfolio"
     },
     {
       "title": "Ecommerce APIs",
       "imageSrc": "projects/ecommerce.png",
       "description": "This is a project made to learn the latest languages by building an app.",
-      "skills": ["React", "Express", "Node"],
+      "skills": ["Django Restframework","swagger","PostgreSQL"],
       "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "source": "https://github.com/NagarajMurgod/Ecommerce"
     },
     {
       "title": "TODO Application",
-      "imageSrc": "projects/ecommerce.png",
+      "imageSrc": "projects/todo.png",
       "description": "This is a project made to learn the latest languages by building an app.",
-      "skills": ["React", "Express", "Node"],
+      "skills": ["Django", "Bootstrap", "sqlite"],
       "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "source": "https://github.com/NagarajMurgod/DjangoTodoApp"
     }
   ]
