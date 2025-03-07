@@ -1,4 +1,4 @@
 
 export const getImageUrl = (path) => {
-    return new URL(path, import.meta.url).href;
+    return new URL("public/assets/"+path, import.meta.url).href;
 };

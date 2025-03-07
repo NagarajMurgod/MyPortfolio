@@ -32,7 +32,7 @@
 }
 
 .title {
-    font-size: 72px;
+    font-size: 50px;
     font-weight: 900;
     margin-bottom: 33px;
     font-family: var(--font-roboto);
@@ -241,6 +241,13 @@
     height: 1.2rem;
   }
 
+}
+
+
+@media screen and (max-height: 1600px){
+  .container{
+    height: 80vh;
+  }
 }
 
 
