@@ -178,8 +178,11 @@
   }
   
   .arrows{
-    display: none !important;
+    font-size:3rem !important
+    /* top: 100; */
+    /* border: 1px solid red; */
   }
+
   .aboutItem {
     padding-left: 0;
     padding-right: 0;
@@ -203,10 +206,25 @@
 
 @media screen and (max-width: 450px) {
 
+  .arrows{
+    top: 92%;
+    font-size:2rem !important;
+    /* top: 100; */
+    /* border: 1px solid red; */
+  }
+
+  .leftarrow{
+    left: 20%;
+    
+  }
+  .rightarrow{
+    right: 20%;
+  }
   .mainContainer{
     /* border: 1px solid green; */
     height: 90vh !important;
     margin-bottom: 0% !important;
+    margin-top: 2rem;
   }
 
   .container{
@@ -228,6 +246,12 @@
     /* border: 1px solid red; */
     min-height: 400px !important;
     margin-bottom: 1rem;
+  }
+  .aboutItemText > h3{
+    font-size: 1.1rem !important;
+  }
+  .aboutItemText > h4{
+    font-size: 1rem !important;
   }
 
   .fadedText{
