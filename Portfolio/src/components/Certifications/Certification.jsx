@@ -17,6 +17,7 @@ export const Certifications = () => {
     const getCerts = async () => {
         try{
             const resp = await axios.get("https://raw.githubusercontent.com/NagarajMurgod/MyPortfolio/refs/heads/main/Portfolio/src/data/certification.json");
+            console.log(resp.data);
             setCertifications(resp.data);
         }catch(error){
             console.log(error);
