@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Experience.module.css";
 import { getImageUrl } from "../../utils";
-import experience from "../../data/experience.json";
+// import experience from "../../data/experience.json";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import axios from "axios";
+
 
 export const Experience = () => {
 
@@ -15,13 +17,30 @@ export const Experience = () => {
   const [dot, setDot] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [experience, setExperience] = useState([]);
 
+  
+  const getExp = async () => {
+      try{
+          const resp = await axios.get("https://raw.githubusercontent.com/NagarajMurgod/MyPortfolio/refs/heads/main/Portfolio/src/data/experience.json");
+          setExperience(resp.data);
+          setCanScrollLeft(false);
+          setCanScrollRight(true);
+          // setExpLen(resp.data.length);
+      }catch(error){
+          console.log(error);
+      }
+  }
+
+  useEffect(()=>{
+    getExp();
+  },[]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-
+          
           if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
             const divElement = entry.target;
             const divOffset = divElement.offsetLeft;
@@ -58,7 +77,7 @@ export const Experience = () => {
       }
     );
 
-    console.log(scrollRef.current);
+    
     scrollRef.current.childNodes.forEach((div) => {
       if (div) observer.observe(div);
     });
@@ -69,7 +88,7 @@ export const Experience = () => {
         if (div) observer.unobserve(div);
       });
     };
-  }, []);
+  }, [experience]);
 
   const prevSlide = () => {
     if (scrollRef.current) {
@@ -85,6 +104,7 @@ export const Experience = () => {
   }
 
   const nextSlide = () => {
+
     if (scrollRef.current) {
       const containerWidth = scrollRef.current.offsetWidth + 50.5;
       scrollRef.current.scrollTo({

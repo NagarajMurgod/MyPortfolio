@@ -1,16 +1,30 @@
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Certification.module.css";
-import certifications from "../../data/certification.json"
+// import certifications from "../../data/certification.json"
 import { getImageUrl } from "../../utils";
 
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import axios from "axios"
 
+// axios.defaults.withCredentials = true;
 
 export const Certifications = () => {
     const Scrollref = useRef(null);
+    const [certifications, setCertifications] = useState([]);
 
+    const getCerts = async () => {
+        try{
+            const resp = await axios.get("https://raw.githubusercontent.com/NagarajMurgod/MyPortfolio/refs/heads/main/Portfolio/src/data/certification.json");
+            setCertifications(resp.data);
+        }catch(error){
+            console.log(error);
+        }
+    }
+    useEffect(()=>{
+        getCerts()
+    },[])
 
     const RightScroll = () =>{
         let element =  Scrollref.current
