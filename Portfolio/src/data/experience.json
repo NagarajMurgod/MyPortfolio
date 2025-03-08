@@ -12,19 +12,5 @@
             "Contribute to the development and enhancement of internal Web UI by automating key tasks and providing an efficient interface for accessing data and business operations.",
             "Integrate APIs into automation software to enable tool-specific automation, ensuring seamless communication and data exchange between different systems and services"
         ]
-    },
-    {
-        "role" : "Analyst | Python Developer",
-        "startEndDate" : "Sep 2022 - Present",
-        "company" : "icons/hcl.png",
-        "experience" : [
-            "Architect and develop scalable automation solutions to address repetitive and time-consuming tasks, ensuring they integrate seamlessly with existing software and systems.",
-            "Write clean, efficient, and maintainable code in languages such as Python,bash,Powershell to automate manual workflows and facilitate real-time data processing.",
-            "Conduct comprehensive testing to ensure the automation software is error-free, reliable, and scalable.",
-            "Work closely with project managers and IT teams to identify opportunities for automation, troubleshoot issues, and provide ongoing support and maintenance.",
-            "Implement and manage GitHub Actions workflows for continuous integration/continuous deployment (CI/CD).",
-            "Contribute to the development and enhancement of internal Web UI by automating key tasks and providing an efficient interface for accessing data and business operations.",
-            "Integrate APIs into automation software to enable tool-specific automation, ensuring seamless communication and data exchange between different systems and services"
-        ]
     }
 ]
