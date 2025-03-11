@@ -11,15 +11,23 @@
       "title": "Personal Portfolio",
       "imageSrc": "projects/portfolio.png",
       "description": "This is a project made to get hands-on with React module and its features.",
-      "skills": ["React","css"],
+      "skills": ["React","CSS"],
       "demo": "https://www.example.com",
       "source": "https://github.com/NagarajMurgod/MyPortfolio"
+    },
+    {
+      "title": "JWT Authentication API",
+      "imageSrc": "projects/jwt.png",
+      "description": "This project provides a JWT authentication system implemented with Django REST Framework (DRF).",
+      "skills": ["Django Restframework","Swagger","PostgreSQL"],
+      "demo": "https://www.example.com",
+      "source": "https://github.com/NagarajMurgod/DRF_JWTAutehntication"
     },
     {
       "title": "Ecommerce APIs",
       "imageSrc": "projects/ecommerce.png",
       "description": "This is a project made to learn the latest languages by building an app.",
-      "skills": ["Django Restframework","swagger","PostgreSQL"],
+      "skills": ["Django Restframework","PostgreSQL"],
       "demo": "https://www.example.com",
       "source": "https://github.com/NagarajMurgod/Ecommerce"
     },
