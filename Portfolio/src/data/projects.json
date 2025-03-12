@@ -16,7 +16,7 @@
       "source": "https://github.com/NagarajMurgod/MyPortfolio"
     },
     {
-      "title": "JWT Authentication API",
+      "title": "JWT Auth API",
       "imageSrc": "projects/jwt.png",
       "description": "This project provides a JWT authentication system implemented with Django REST Framework (DRF).",
       "skills": ["Django Restframework","Swagger","PostgreSQL"],
