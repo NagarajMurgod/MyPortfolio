@@ -4,12 +4,14 @@
         "startEndDate" : "Sep 2022 - Present",
         "company" : "icons/hcl.png",
         "experience" : [
-            "Designed, developed, and implemented automation scripts to streamline repetitive processes, increasing operational efficiency and reducing manual efforts",
-            "Integrated the service catalog with automation scripts to enhance workflow efficiency and streamline operations",
-            "Collaborated with cross-functional teams to understand process requirements and delivered automation solutions that contributed in enhancing team productivity",
+            "Designed, developed, and implemented automation scripts to streamline repetitive processes, increasing operational efficiency and reducing manual efforts.",
+            "Integrated the service catalog with automation scripts to enhance workflow efficiency and streamline operations.",
+            "Collaborated with cross-functional teams to understand process requirements and delivered automation solutions that contributed in enhancing team productivity.",
             "Leveraged GitHub Actions workflows to schedule and automate tasks,running scripts that performed critical automation functions and generated detailed reports, streamlining workflow management and reducing operational costs",
-            "ntegrated external APIs into automation workflows to enable tool-specific automation, reducing manual intervention",
-            "Provided detailed documentation for automation scripts, workflows, and system integrations to ensure smooth onboarding and knowledge transfer"
+            "Integrated external APIs into automation workflows to enable tool-specific automation, reducing manual intervention",
+            "Identified and resolved the root cause affecting the DB refresh activity performed via automation tool, significantly reducing customer impact.",
+            "Provided detailed documentation for automation scripts, workflows, and system integrations to ensure smooth onboarding and knowledge transfer.",
+            "Tools & Technologies : Python, PowerShell, Shell Scripting, Ansible, AWX, Git, GitHub, SQL, API Testing and Integration, Microsoft Azure, Servicenow, Jira, Git Actions, Service catalogs."
         ]
     }
 ]
